@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 需要绘制的键盘布局 -->
+    <com.whosmyqueen.oim.keyboard.SoftKeyboardView
+        android:id="@+id/softKeyboardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- 弹出的键盘布局 -->
+    <com.whosmyqueen.oim.keyboard.SoftKeyboardView
+        android:id="@+id/popup_keyboardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</merge>
