@@ -86,10 +86,8 @@ public class SkbContainer extends RelativeLayout {
             }
             // 初始化状态.
             skb.enableToggleStates(mInputModeSwitcher.getToggleStates(), softKey);
-            /**
-             * 清空原先的键盘缓存.<br>
-             * 比如 回车改变了状态.(onstartinputView触发)<br>
-             */
+            //清空原先的键盘缓存.<br>
+            //比如 回车改变了状态.(onstartinputView触发)<br>
             mSoftKeyboardView.clearCacheBitmap();
         }
     }
@@ -161,6 +159,7 @@ public class SkbContainer extends RelativeLayout {
                 || (softKeyCode >= KeyEvent.KEYCODE_0 && softKeyCode <= KeyEvent.KEYCODE_9)) {
             String label = softKey.getKeyLabel();
 //            mService.commitResultText(label);
+            onCommitResultText(label);
             return true;
         }
         /*
@@ -169,6 +168,7 @@ public class SkbContainer extends RelativeLayout {
         switch (softKeyCode) {
             case KeyEvent.KEYCODE_DEL: // 删除 67
 //                mService.getCurrentInputConnection().deleteSurroundingText(1, 0);
+                onDelete();
                 break;
             case KeyEvent.KEYCODE_ENTER: // 回车 66
                 if (softKey instanceof ToggleSoftKey) {
@@ -178,16 +178,20 @@ public class SkbContainer extends RelativeLayout {
                      */
                     if (toggleSoftKey.getSaveStateId() == InputModeSwitcher.TOGGLE_ENTER_MULTI_LINE_DONE) {
 //                        mService.commitResultText("\n");
+                        onCommitResultText("\n");
                     } else {
 //                        mService.sendKeyChar('\n');
+                        onCommitResultText("\n");
                     }
                 }
                 break;
             case KeyEvent.KEYCODE_SPACE: // 空格 62
 //                mService.sendKeyChar(' ');
+                onCommitResultText(" ");
                 break;
             case KeyEvent.KEYCODE_BACK: // 返回
 //                mService.requestHideSelf(0); // 输入法88.
+                onBack();
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT: // 光标向左移动.
 //                mService.setCursorLeftMove();
@@ -198,6 +202,7 @@ public class SkbContainer extends RelativeLayout {
             default: // 测试.
                 String label = softKey.getKeyLabel();
 //                mService.commitResultText(label);
+                onCommitResultText(label);
                 break;
         }
 
@@ -206,6 +211,30 @@ public class SkbContainer extends RelativeLayout {
         }
 
         return true;
+    }
+
+    private void onCommitResultText(String text) {
+        if (mSoftKeyListener != null) {
+            mSoftKeyListener.onCommitResultText(text);
+        }
+    }
+
+    private void onCommitText(SoftKey key) {
+        if (mSoftKeyListener != null) {
+            mSoftKeyListener.onCommitText(key);
+        }
+    }
+
+    private void onDelete() {
+        if (mSoftKeyListener != null) {
+            mSoftKeyListener.onDelete();
+        }
+    }
+
+    private void onBack() {
+        if (mSoftKeyListener != null) {
+            mSoftKeyListener.onBack();
+        }
     }
 
     /**
@@ -232,6 +261,7 @@ public class SkbContainer extends RelativeLayout {
                 break;
             case KeyEvent.KEYCODE_DEL: // 删除
 //                mService.getCurrentInputConnection().deleteSurroundingText(1, 0);
+                onDelete();
                 break;
             case KeyEvent.KEYCODE_BACK: // 返回
             case KeyEvent.KEYCODE_ESCAPE: // 键盘返回.
@@ -268,6 +298,7 @@ public class SkbContainer extends RelativeLayout {
                 if (isBackQuit && (softKey.getKeyCode() == KeyEvent.KEYCODE_BACK) && setKeyCodeEnter(softKey)) {
 //                    mService.requestHideSelf(0); // 输入法88.
                     isBackQuit = false;
+                    onBack();
                 }
                 break;
         }

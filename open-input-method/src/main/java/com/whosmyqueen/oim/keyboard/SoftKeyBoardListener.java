@@ -1,5 +1,11 @@
 package com.whosmyqueen.oim.keyboard;
 
 public interface SoftKeyBoardListener {
-	void onCommitText(SoftKey key);
+    void onCommitResultText(String text);
+
+    void onCommitText(SoftKey key);
+
+    void onDelete();
+
+    void onBack();
 }
