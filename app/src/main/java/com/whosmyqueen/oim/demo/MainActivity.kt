@@ -11,7 +11,6 @@ import com.whosmyqueen.oim.keyboard.InputModeSwitcher
 import com.whosmyqueen.oim.keyboard.SkbContainer
 import com.whosmyqueen.oim.keyboard.SoftKey
 import com.whosmyqueen.oim.keyboard.SoftKeyBoardListener
-import com.whosmyqueen.oim.service.IMEService
 import com.whosmyqueen.oim.utils.MeasureHelper
 import com.whosmyqueen.oim.utils.OPENLOG
 
