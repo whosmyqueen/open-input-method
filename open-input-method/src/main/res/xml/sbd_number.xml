@@ -10,9 +10,7 @@
     key_text_color="#b8bbbf"
     key_text_size="@dimen/px60"
     key_top_padding="@dimen/px10"
-    key_width="@dimen/px100"
-    start_pos_x="@dimen/px240"
-    start_pos_y="@dimen/px20" >
+    key_width="@dimen/px95" >
 
     <!-- 第一行 -->
     <row>
