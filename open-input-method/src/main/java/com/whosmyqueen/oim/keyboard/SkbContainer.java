@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.whosmyqueen.oim.R;
-import com.whosmyqueen.oim.service.IMEService;
 import com.whosmyqueen.oim.utils.MeasureHelper;
 import com.whosmyqueen.oim.utils.OPENLOG;
 
