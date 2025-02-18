@@ -4,6 +4,7 @@ plugins {
     id("maven-publish")
 }
 group = "com.github.whosmyqueen"
+version = "1.0.0"
 android {
     namespace = "com.whosmyqueen.oim"
     compileSdk = 35
