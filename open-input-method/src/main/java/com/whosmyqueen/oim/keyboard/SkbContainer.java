@@ -332,32 +332,32 @@ public class SkbContainer extends RelativeLayout {
         ;
     };
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        int action = event.getAction();
-        int x = (int) event.getX();
-        int y = (int) event.getY();
-
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                SoftKey downSKey = mSoftKeyboardView.onTouchKeyPress(x, y);
-                if (downSKey != null) {
-                    mSoftKeyboardView.getSoftKeyboard().setOneKeySelected(downSKey);
-                    mSoftKeyboardView.setSoftKeyPress(true);
-                    setKeyCodeEnter(downSKey);
-                    // 长按按键.
-                    Message msg = longPressHandler.obtainMessage();
-                    msg.obj = downSKey;
-                    longPressHandler.sendMessageDelayed(msg, LOG_PRESS_DELAYMILLIS);
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                longPressHandler.removeCallbacksAndMessages(null); // 取消长按按键.
-                mSoftKeyboardView.setSoftKeyPress(false);
-                break;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        int action = event.getAction();
+//        int x = (int) event.getX();
+//        int y = (int) event.getY();
+//
+//        switch (action) {
+//            case MotionEvent.ACTION_DOWN:
+//                SoftKey downSKey = mSoftKeyboardView.onTouchKeyPress(x, y);
+//                if (downSKey != null) {
+//                    mSoftKeyboardView.getSoftKeyboard().setOneKeySelected(downSKey);
+//                    mSoftKeyboardView.setSoftKeyPress(true);
+//                    setKeyCodeEnter(downSKey);
+//                    // 长按按键.
+//                    Message msg = longPressHandler.obtainMessage();
+//                    msg.obj = downSKey;
+//                    longPressHandler.sendMessageDelayed(msg, LOG_PRESS_DELAYMILLIS);
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                longPressHandler.removeCallbacksAndMessages(null); // 取消长按按键.
+//                mSoftKeyboardView.setSoftKeyPress(false);
+//                break;
+//        }
+//        return true;
+//    }
 
     /**
      * 定制软键盘的，高度和高度.
