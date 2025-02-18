@@ -7,6 +7,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.blankj.utilcode.util.ToastUtils
 import com.whosmyqueen.oim.keyboard.InputModeSwitcher
 import com.whosmyqueen.oim.keyboard.SkbContainer
 import com.whosmyqueen.oim.keyboard.SoftKey
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onCommitText(key: SoftKey?) {
+            }
+
+            override fun onSubmit() {
+                ToastUtils.showLong("submit")
             }
 
             override fun onDelete() {

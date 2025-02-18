@@ -35,6 +35,6 @@
     <string name="enter_send">Send</string><!-- 发送 -->
     <string name="enter_next">Next</string><!-- 下一个 -->
     <string name="enter_text">Enter</string><!-- 完成 -->
-    <string name="enter_mulit_line_text">Enter</string><!-- 完成 -->
+    <string name="enter_mulit_line_text">Submit</string><!-- 完成 -->
     
 </resources>

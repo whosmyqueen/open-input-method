@@ -5,6 +5,8 @@ public interface SoftKeyBoardListener {
 
     void onCommitText(SoftKey key);
 
+    void onSubmit();
+
     void onDelete();
 
     void onBack();
