@@ -27,6 +27,23 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.whosmyqueen"
+            artifactId = "open-input-method"
+            version = "1.0.0"
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
 
 dependencies {
