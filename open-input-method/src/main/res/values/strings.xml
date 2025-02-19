@@ -1,6 +1,5 @@
 <resources>
 
-    <string name="app_name">TVInputMethod</string>
 	
     <!-- 按键状态 -->
     <string name="toggle_keycode_case">-1</string> <!-- 大小写切换 -->
